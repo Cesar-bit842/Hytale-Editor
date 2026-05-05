@@ -12,15 +12,32 @@
   <title>Hytale Editor</title>  
  </head>
  <body> 
-  <section class="Background-Service">
-   <Splash>
-    <Logo>
-     <img src="../src/Images/Index/Logo TIP.png" alt=""/>  
-    </Logo>
-    <Loading>
-     <div></div>
-    </Loading>
-   </Splash>
-  </section> 
+  <main>  
+   <Topbar>
+    <button id="MenuScreenToggle">
+     <img src="../src/Images/Homepage/Menu.png" alt=""/> 
+    </button>  
+    <p>Hytale Editor</p>
+   </Topbar>
+   <mainboard>
+    <Menubar id="MenuScreen">
+     <section namespace="General"> 
+      <button nt='Dashboard'>
+       <backface></backface>   
+       <p>Dashboard</p>
+      </button> 
+      <button nt='Projects'>
+       <backface></backface>   
+       <p>Projects</p>
+      </button> 
+     </section>
+    </Menubar>
+    <dashboard> 
+     <panel panel="Projects"> 
+      
+     </panel> 
+    </dashboard>
+   </mainboard>
+  </main>
  </body>
 </html>

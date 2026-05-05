@@ -1,0 +1,222 @@
+body{
+ width: 100dvw;
+ height: 100dvh;
+ margin: 0px;
+}
+body{
+ --s: 55px; /* shape size */
+ --m: 1px;  /* line thickness */
+ --LineColor: #000000;
+ --v1: #02031a 119.5deg, #00000000 120.5deg;
+ --v2: #04073d 119.5deg, #0000 120.5deg;
+ background: conic-gradient(at var(--m) calc(var(--s) * 0.5777), transparent 270deg, #04073d 0deg), conic-gradient(at calc(100% - var(--m)) calc(var(--s) * 0.5777), #04073d 90deg, #ffffff00 0deg), conic-gradient(from -60deg at 50% calc(var(--s) * 0.8662), var(--v1)), conic-gradient(from -60deg at 50% calc(var(--s) * 0.8662 + 2 * var(--m)), var(--v2)), conic-gradient(from 120deg at 50% calc(var(--s) * 1.4435 + 3 * var(--m)), var(--v1)), conic-gradient(from 120deg at 50% calc(var(--s) * 1.4435 + var(--m)), var(--v2)), linear-gradient(90deg, #02031a calc(50% - var(--m)), #04073d 0 calc(50% + var(--m)), #02031a 0);
+ background-size: calc(var(--s) + 2*var(--m)) calc(var(--s)*1.732 + 3*var(--m));
+}
+body main{
+ width: 100%;
+ height: 100%;
+ display: flex;
+ position: relative;
+ box-sizing: border-box;
+ flex-direction: column;
+}
+body main topbar{
+ width: 100%;
+ height: 55px;
+ min-height: 55px;
+ position: relative;
+ display: flex;
+ flex-direction: row;
+ background-color: #02031a;
+ border-block-end: 1px solid #0035a0;
+ box-sizing: border-box;
+ align-items: center;
+}
+body main topbar button{
+ all: unset;
+ width: auto;
+ height: 80%;
+ aspect-ratio: 1 / 1 auto;
+ position: relative;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ padding-inline: 5px;
+ cursor: pointer;
+}
+body main topbar button img{
+ height: 100%;
+ width: auto;
+ aspect-ratio: 1 / 1 auto;
+ /* filter: drop-shadow(0px 0px 1px white); */
+}
+body main topbar p{
+ margin: 0px;
+ margin-inline-start: 5px;
+ color: white;
+ font-size: 1.3em;
+ font-family: "Lexend";
+ font-weight: 400;
+ /* filter: drop-shadow(0px 0px 1px white); */
+}
+body main mainboard{
+ height: 100%;
+ width: 100%;
+ position: relative;
+ display: flex;
+ flex-direction: row;
+ box-sizing: border-box;
+}
+body main mainboard menubar{
+ /* padding: 9px; */
+ box-sizing: border-box;
+ border-inline-end: 1px solid #0035a0;
+ background-color: #02031a;
+}
+body main mainboard menubar Section{
+ --IconSize: 27.5px;
+}
+body main mainboard menubar Section strong{
+ width: max-content;
+ font-weight: 700;
+ font-family: 'Quicksand';
+ color: #ffffff;
+ font-size: 17.5px;
+ filter: drop-shadow(0px 0px 2px #00000073);
+}
+body main mainboard menubar Section strong{
+ color: var(--SectionColor);
+}
+
+body main mainboard menubar Section button:first-of-type{
+ margin-block-start: 20px;
+}
+body main mainboard menubar Section button{
+ all: unset;
+ display: flex;
+ flex-direction: row;
+ align-items: center;
+ width: max-content;
+ padding: 10px;
+ padding-block: 2.5px;
+ padding-block-start: 5px;
+ cursor: pointer;
+ padding-block: 10px;
+ padding-inline: 50px;
+ padding-inline-start: 15px;
+ width: -webkit-fill-available;
+}
+body main mainboard menubar Section button backface{
+ height: var(--IconSize);
+ width: auto;
+ aspect-ratio: 1 / 1;
+ display: block;
+ transition: 0.25s;
+}
+body main mainboard menubar Section button p{
+ margin: 0px;
+ filter: drop-shadow(0px 0px 2px #00000073);
+ font-weight: 700;
+ font-family: 'Poppins';
+ color: #ffffff;
+ font-size: 15px;
+ padding-inline-start: 8px;
+ padding-inline-end: 5px;
+ margin-block-start: 2.5px;
+ transition: 0.25s;
+}
+body main mainboard menubar Section button:hover p{
+ color: var(--SectionColor);
+}
+body main mainboard menubar Section[namespace="General"]{
+ --SectionColor: #4572ff;
+ top: 0px;
+ position: relative;
+ height: max-content;
+}
+body main mainboard menubar Section[namespace="General"] button:hover{
+    background: linear-gradient(
+270deg, #588fff57, transparent);
+}
+body main mainboard menubar Section[namespace="General"] button:hover backface{
+     background-color: var(--SectionColor) !important;
+}
+body main mainboard menubar Section[namespace="General"] button:nth-of-type(1) backface{
+ background-color: white;
+ mask-image: url("../src/Images/Homepage/Dashboard.png");
+ mask-repeat: no-repeat;
+ mask-position: center;
+ mask-size: contain;
+} 
+body main mainboard menubar Section[namespace="General"] button:nth-of-type(2) backface{
+ background-color: white;
+ mask-image: url("../src/Images/Homepage/Projects.png");
+ mask-repeat: no-repeat;
+ mask-position: center;
+ mask-size: contain;
+} 
+
+/*
+body main mainboard menubar Section button:first-of-type{
+     margin-block-start: 5px;
+}
+body main mainboard menubar Section button{
+     all: unset;
+     display: flex;
+     flex-direction: row;
+     align-items: center;
+     width: max-content;
+     padding: 10px;
+     padding-block: 2.5px;
+     padding-block-start: 5px;
+     margin-block-end: 10px;
+     cursor: pointer;
+}
+body main mainboard menubar Section button backface{
+     height: var(--IconSize);
+     width: auto;
+     aspect-ratio: 1 / 1;
+     display: block;
+     transition: 0.25s;
+}
+body main mainboard menubar Section button p{
+     margin: 0px;
+     filter: drop-shadow(0px 0px 2px #00000073);
+     font-weight: 700;
+     font-family: 'Poppins';
+     color: #ffffff;
+     font-size: 15px;
+     padding-inline-start: 8px;
+     padding-inline-end: 5px;
+     margin-block-start: 2.5px;
+     transition: 0.25s;
+}
+body main mainboard menubar Section button:hover p{
+     color: var(--SectionColor);
+} 
+body main mainboard menubar Section[namespace="General"]{
+     --SectionColor: #4572ff;
+     margin-inline-end: 45px;
+     margin-inline-start: 5px;
+     margin-block-start: 10px;
+}
+body main mainboard menubar Section[namespace="General"] button:nth-of-type(1) backface{
+     background-color: white;
+     mask-image: url("../src/Images/Homepage/Dashboard.png");
+     mask-repeat: no-repeat;
+     mask-position: center;
+     mask-size: contain;
+} 
+body main mainboard menubar Section[namespace="General"] button:hover backface{
+     background-color: var(--SectionColor);
+}
+body main mainboard menubar Section[namespace="General"] button:nth-of-type(2) backface{
+     background-color: white;
+     mask-image: url("../src/Images/Homepage/Projects.png");
+     mask-repeat: no-repeat;
+     mask-position: center;
+     mask-size: contain;
+} 
+body main mainboard menubar Section[namespace="General"] button:hover backface{
+     background-color: var(--SectionColor);
+}*/
