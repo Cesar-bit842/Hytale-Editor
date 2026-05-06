@@ -20,6 +20,7 @@ body main{
  box-sizing: border-box;
  flex-direction: column;
 }
+
 body main topbar{
  width: 100%;
  height: 55px;
@@ -32,7 +33,19 @@ body main topbar{
  box-sizing: border-box;
  align-items: center;
 }
-body main topbar button{
+body main topbar Titlebar{
+ 
+height: 100%;
+ 
+display: flex;
+ 
+flex-direction: row;
+ 
+align-items: center;
+ 
+min-width: max-content;
+}
+body main topbar Titlebar button{
  all: unset;
  width: auto;
  height: 80%;
@@ -44,13 +57,13 @@ body main topbar button{
  padding-inline: 5px;
  cursor: pointer;
 }
-body main topbar button img{
+body main topbar Titlebar button img{
  height: 100%;
  width: auto;
  aspect-ratio: 1 / 1 auto;
  /* filter: drop-shadow(0px 0px 1px white); */
 }
-body main topbar p{
+body main topbar Titlebar p{
  margin: 0px;
  margin-inline-start: 5px;
  color: white;
@@ -59,6 +72,133 @@ body main topbar p{
  font-weight: 400;
  /* filter: drop-shadow(0px 0px 1px white); */
 }
+
+body main topbar Searchbar{
+ 
+height: 100%;
+ 
+width: 100%;
+ 
+display: flex;
+ 
+flex-direction: row;
+ 
+align-items: center;
+ 
+min-width: max-content;
+ 
+justify-content: flex-start;
+ 
+padding-inline: 15px;
+ 
+margin-inline: 15px;
+ 
+border-inline-start: 1px solid #0035a0;
+} 
+body main topbar Searchbar search{
+    height: 75%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    position: relative;
+    width: 100%;
+}
+body main topbar Searchbar search img{
+    left: 15px;
+    height: 50%;
+    width: auto;
+    aspect-ratio: 1 / 1 auto;
+    position: absolute;
+    z-index: 1;
+}
+body main topbar Searchbar search input{
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    border-radius: 20px;
+    border: 1.5px solid #0035a0;
+    background-color: #2b53a633;
+    padding-inline-start: 45px;
+    color: white;
+    font-family: 'Lexend';
+}
+body main topbar Searchbar search input::placeholder{
+ color: #d1d1d1a6;
+}
+body main topbar Searchbar search input:focus{
+ outline: none;
+}
+
+body main topbar Toolbar{
+ 
+width: max-content;
+ 
+min-width: max-content;
+ 
+height: 100%;
+ 
+display: flex;
+ 
+flex-direction: row;
+ 
+align-items: center;
+ 
+padding-inline-end: 15px;
+}
+body main topbar Toolbar button{
+  transition: 0.25s;
+}
+body main topbar Toolbar button:hover{
+  background: linear-gradient(0deg, #0b4cd1, #6a8eff) !important;
+}
+body main topbar Toolbar button[Tool="Notifications"]{
+    all: unset;
+    height: 55%;
+    width: max-content;
+    aspect-ratio: 1 / 1 auto;
+    margin-inline-end: 15px;
+    cursor: pointer;
+    mask-image: url(../src/Images/Homepage/Notifications.png);
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: contain;
+    background: linear-gradient(0deg, #0035a0, #4572ff);
+}
+body main topbar Toolbar div{
+    height: 70%;
+    width: 2px;
+    background-color: #254586;
+    box-sizing: border-box;
+    border-radius: 100%;
+}
+body main topbar Toolbar button[Tool="Profile"]{
+    all: unset;
+    height: 75%;
+    width: max-content;
+    aspect-ratio: 1 / 1 auto;
+    margin-inline: 15px;
+    cursor: pointer;
+    mask-image: url(../src/Images/Homepage/Projects.png);
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: contain;
+    background: linear-gradient(0deg, #0035a0, #4572ff);
+}
+body main topbar Toolbar button[Tool="Config"]{
+    all: unset;
+    height: 60%;
+    width: max-content;
+    aspect-ratio: 1 / 1 auto;
+    cursor: pointer;
+    mask-image: url(../src/Images/Homepage/Config.png);
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: contain;
+    background: linear-gradient(0deg, #0035a0, #4572ff);
+}
+ 
 body main mainboard{
  height: 100%;
  width: 100%;
@@ -66,7 +206,7 @@ body main mainboard{
  display: flex;
  flex-direction: row;
  box-sizing: border-box;
-}
+} 
 body main mainboard menubar{
  /* padding: 9px; */
  box-sizing: border-box;
@@ -128,6 +268,7 @@ body main mainboard menubar Section button p{
 body main mainboard menubar Section button:hover p{
  color: var(--SectionColor);
 }
+
 body main mainboard menubar Section[namespace="General"]{
  --SectionColor: #4572ff;
  top: 0px;
@@ -219,4 +360,5 @@ body main mainboard menubar Section[namespace="General"] button:nth-of-type(2) b
 } 
 body main mainboard menubar Section[namespace="General"] button:hover backface{
      background-color: var(--SectionColor);
-}*/
+}
+*/
