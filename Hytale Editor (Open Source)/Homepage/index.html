@@ -16,21 +16,27 @@
    <Topbar>
     <Titlebar>
      <button id="MenuScreenToggle">
-      <img src="../src/Images/Homepage/Menu.png" alt=""/> 
+      <img src="../src/Images/Homepage/Topbar/Menu.png" alt=""/> 
      </button>  
      <p>Hytale Editor</p>
     </Titlebar>
     <Searchbar>
      <Search>
-      <img src="../src/Images/Homepage/Search.png" alt=""/>
+      <img src="../src/Images/Homepage/Topbar/Search.png" alt=""/>
       <input type="text" name="Search" value="" placeholder="Search Projects" />
      </Search>
     </Searchbar>
     <Toolbar>
-     <button Tool="Notifications"></button>
+     <button Tool="Notifications">
+      <ImageService></ImageService>
+     </button>
      <div></div>
-     <button Tool="Profile"></button>
-     <button Tool="Config"></button>
+     <button Tool="Profile">
+      <ImageService></ImageService>
+     </button>
+     <button Tool="Config">
+      <ImageService></ImageService>
+     </button>
     </Toolbar> 
    </Topbar>
    <mainboard>
@@ -47,9 +53,166 @@
      </section>
     </Menubar>
     <dashboard> 
-     <panel panel="Projects"> 
-      
-     </panel> 
+     <panel panel="Dashboard">
+      <topbar></topbar>
+      <content> 
+       <panel Service="Feed">
+        <topbar>
+         <ptitle>
+          <p>Welcome Back!</p> 
+         </ptitle>
+         <otitle>    
+          <p>Overview</p> 
+         </otitle>
+        </topbar>
+        <content> 
+         <div>
+          <FeedItem WF="Recent Projects">
+           <Topbar>
+            <p>Recent Projects</p>
+           </Topbar>
+           <Centerbar>
+            <div>
+             <p>8</p> 
+            </div>
+            <div></div>
+           </Centerbar>
+           <Bottombar>
+            <button></button>
+           </Bottombar>
+          </FeedItem>
+          <FeedItem WF="Team Projects">
+           <Topbar>
+            <p>Team Projects</p>
+           </Topbar>
+           <Centerbar>
+            <div>
+             <p>WIP</p> 
+            </div>
+            <div></div>
+           </Centerbar>
+           <Bottombar>
+            <button></button>
+           </Bottombar>
+          </FeedItem>
+          <FeedItem WF="Project News">
+           <Topbar>
+            <p>Project News</p>
+           </Topbar>
+           <Centerbar>
+            <div>
+             <p>WIP</p> 
+            </div>
+            <div></div>
+           </Centerbar>
+           <Bottombar>
+            <button></button>
+           </Bottombar>
+          </FeedItem>
+         </div>
+         <div>
+
+         </div>
+        </content>
+       </panel>  
+       <panel Service="RightToolbar"> 
+        <content> 
+         <PanelSection tp="Hytale-Editor">
+          <top>
+           <ImageService></ImageService>
+           <p>Hytale Editor</p> 
+          </top>
+          <down>
+           <DisplayHytaleEditor>
+            <EditorVersion>
+             <ImageService></ImageService>
+             <p>fp1.1.3</p>
+            </EditorVersion>
+            <EditorBranch>
+             <ImageService></ImageService>
+             <p>Main</p>
+            </EditorBranch> 
+            <EditorEngine>
+             <ImageService></ImageService>
+             <p>[Not Installed]</p>
+            </EditorEngine> 
+           </DisplayHytaleEditor> 
+          </down>
+         </PanelSection>
+         <PanelSection tp="Hytale-Editor-Publisher">
+          <top>
+           <ImageService></ImageService>
+           <p>Hytale Editor Publisher</p> 
+          </top>
+          <down>
+           <DisplayHytaleEditorPublisher>
+            <News>
+             <ImageService></ImageService>
+             <p>News</p>
+            </News>
+            <Feedback>
+             <ImageService></ImageService>
+             <p>Feedback</p>
+            </Feedback>  
+           </DisplayHytaleEditorPublisher> 
+          </down>
+         </PanelSection>
+         <PanelSection tp="Game-Documentation">
+          <top>
+           <ImageService></ImageService>
+           <p>Modding Community's</p> 
+          </top>
+          <down>
+           <DisplayListDown>
+            <HytaleModding>
+             <ImageService></ImageService>
+             <p>Hytale Modding</p>
+            </HytaleModding>
+            <HytaleGames>
+             <ImageService></ImageService>
+             <p>Hytale Game</p>
+            </HytaleGames>
+            <CurseForge>
+             <ImageService></ImageService>
+             <p>Curse Forge</p>
+            </CurseForge>
+            <HytaleDocs>
+             <ImageService></ImageService>
+             <p>Hytale Docs</p>
+            </HytaleDocs>
+           </DisplayListDown>
+          </down>
+         </PanelSection>
+         <PanelSection tp="Game-Resources">
+          <top>
+           <ImageService></ImageService>
+           <p>Game Resources</p>
+          </top>
+          <down>
+           <DisplayList>
+            <Textures> 
+             <ImageService></ImageService>
+             <p>Textures</p>
+            </Textures>
+            <Models> 
+             <ImageService></ImageService>
+             <p>Models</p>
+            </Models>
+            <Audios> 
+             <ImageService></ImageService>
+             <p>Audios</p>
+            </Audios>
+            <Scripts> 
+             <ImageService></ImageService>
+             <p>Scripts</p>
+            </Scripts>
+           </DisplayList>
+          </down>
+         </PanelSection> 
+        </content>
+       </panel>  
+      </content>
+     </panel>  
     </dashboard>
    </mainboard>
   </main>
