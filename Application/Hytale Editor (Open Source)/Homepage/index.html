@@ -18,7 +18,7 @@
      <button id="MenuScreenToggle">
       <img src="../src/Images/Homepage/Topbar/Menu.png" alt=""/> 
      </button>  
-     <p>Hytale Editor</p>
+     <p>Hytale Editor</p> 
     </Titlebar>
     <Searchbar>
      <Search>
@@ -40,7 +40,7 @@
     </Toolbar> 
    </Topbar>
    <mainboard>
-    <Menubar id="MenuScreen">
+    <Menubar id="MenuScreen" Status="Hidden">
      <section namespace="General"> 
       <button nt='Dashboard'>
        <backface></backface>   
@@ -66,7 +66,7 @@
          </otitle>
         </topbar>
         <content> 
-         <div>
+         <div t="Actions">
           <FeedItem WF="Recent Projects">
            <Topbar>
             <p>Recent Projects</p>
@@ -110,9 +110,28 @@
            </Bottombar>
           </FeedItem>
          </div>
-         <div>
-
-         </div>
+         <panel Service="Recent Project">
+          <topbar>
+           <ptitle>
+            <p>Recent Projects</p> 
+           </ptitle>
+           <otitle></otitle>
+          </topbar>
+          <content>   
+           <div t="Recent Project">
+            <RecentProject> 
+             <Centerbar>
+              <img src="" alt="alt"/>
+             </Centerbar>
+             <Bottombar>
+              <p>Project Name</p>
+              <div></div>
+              <p>Last Update Time</p>
+             </Bottombar>
+            </RecentProject>
+           </div>
+          </content>
+         </panel>   
         </content>
        </panel>  
        <panel Service="RightToolbar"> 
@@ -146,11 +165,11 @@
           </top>
           <down>
            <DisplayHytaleEditorPublisher>
-            <News>
+            <News dpv="disable" bv="tooltip" tooltipMsg="">
              <ImageService></ImageService>
              <p>News</p>
             </News>
-            <Feedback>
+            <Feedback dpv="disable" bv="tooltip" tooltipMsg="">
              <ImageService></ImageService>
              <p>Feedback</p>
             </Feedback>  

@@ -11,7 +11,7 @@ function createWindow() {
     icon: path.join(__dirname, 'Core/Hytale Editor.png')
   });
 
-  win.loadFile('Hytale Editor (Open Source)/index.html');
+  win.loadURL(`file://${__dirname}/Hytale Editor (Open Source)/index.html?x=nop`);
   Menu.setApplicationMenu(null);
 }
 

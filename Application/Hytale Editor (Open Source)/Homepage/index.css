@@ -67,6 +67,7 @@ body>main>topbar>Titlebar>button{
  align-items: center;
  justify-content: center;
  padding-inline: 7.5px;
+ padding-inline-end: 0px;
  cursor: pointer;
 }
 body>main>topbar>Titlebar>button>img{
@@ -74,6 +75,15 @@ body>main>topbar>Titlebar>button>img{
  width: auto;
  aspect-ratio: 1 / 1 auto;
  /* filter: drop-shadow(0px 0px 1px white); */
+}
+body>main>topbar>Titlebar>img{
+ left: 0px;
+ height: 90%;
+ padding-inline-start: 8px;
+ width: auto;
+ aspect-ratio: 1 / 1 auto;
+ position: relative;
+ z-index: 1;
 }
 body>main>topbar>Titlebar>p{
  margin: 0px;
@@ -101,9 +111,7 @@ body>main>topbar>Searchbar{
 
  justify-content: flex-start;
 
- padding-inline: 15px;
-
- margin-inline: 15px;
+ padding-inline: 15px 30px;
 
  /* border-inline-start: 1px solid #0035a0; */
 }
@@ -226,6 +234,15 @@ body>main>mainboard>menubar{
  box-sizing: border-box;
  border-inline-end: 1px solid #0035a0;
  background-color: #02031a;
+ max-width: 0%;
+ overflow: clip;
+ transition: 0.5s;
+}
+body>main>mainboard>menubar[Status="Hidden"]{
+ max-width: 0%;
+}
+body>main>mainboard>menubar[Status="Show"]{
+ max-width: 100%;
 }
 body>main>mainboard>menubar>Section{
  --IconSize: 27.5px;
@@ -338,10 +355,10 @@ body>main>mainboard>Dashboard>panel{
  box-sizing: border-box;
 }
 panel[panel="Dashboard"]{
- 
-display: flex;
- 
-flex: 0 1 auto;
+
+ display: flex;
+
+ flex: 0 1 auto;
 }
 panel[panel="Dashboard"]>topbar{
  width: 100%;
@@ -353,15 +370,15 @@ panel[panel="Dashboard"]>topbar{
 }
 panel[panel="Dashboard"]>content{
 
-display: flex;
+ display: flex;
 
-flex-direction: row;
+ flex-direction: row;
 
-height: max-content;
+ height: max-content;
 
-width: 100%;
+ width: 100%;
 }
- 
+
 panel[service="Feed"]{
  width: 100%;
  height: 100%;
@@ -489,7 +506,7 @@ panel[service="RightToolbar"]{
  }
 }
 
-panel[service="RightToolbar"]{ 
+panel[service="RightToolbar"]{
  >content>PanelSection>down>DisplayHytaleEditor{
   display: flex;
   flex-direction: column;
@@ -511,17 +528,8 @@ panel[service="RightToolbar"]{
   padding-inline: 5px;
   position: relative;
   box-sizing: border-box;
- }
- >content>PanelSection>down>DisplayHytaleEditor>*:before{
-  content: "";
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  pointer-events: none;
   border: 0.5px solid #00246a;
- } 
+ }
  >content>PanelSection>down>DisplayHytaleEditor>*>ImageService{
   height: 35px;
   width: max-content;
@@ -589,17 +597,19 @@ panel[service="RightToolbar"]{
   cursor: pointer;
   position: relative;
   box-sizing: border-box;
+  border: 0.5px solid #00246a;
  }
- >content>PanelSection>down>DisplayHytaleEditorPublisher>*:before{
+ >content>PanelSection>down>DisplayHytaleEditorPublisher>*[dpv="disable"]:after{
   content: "";
   width: 100%;
   height: 100%;
   position: absolute;
   left: 0px;
   top: 0px;
-  pointer-events: none;
-  border: 0.5px solid #00246a;
- } 
+  box-sizing: border-box;
+  background-color: #0000004a;
+  backdrop-filter: blur(0.5px);
+ }
  >content>PanelSection>down>DisplayHytaleEditorPublisher>*>ImageService{
   height: 35px;
   width: max-content;
@@ -626,7 +636,7 @@ panel[service="RightToolbar"]{
  }
  >content>PanelSection>down>DisplayHytaleEditorPublisher>*:nth-child(2)>ImageService{
   mask-image: url(../src/Images/Homepage/RightToolbar/Hytale-Editor-Publisher/Feedback.png);
- } 
+ }
 
  >content>PanelSection>down>DisplayHytaleEditorPublisher>*:hover {
   filter: drop-shadow(0px 0px 2px #ac8a00) !important;
@@ -693,7 +703,7 @@ panel[service="RightToolbar"]{
   transition: 0.25s;
  }
  >content>PanelSection>down>DisplayListDown>*:nth-child(1){
-  --srcImage: url(../src/Images/Homepage/RightToolbar/Game-Documentation/hytalemodding.png);  
+  --srcImage: url(../src/Images/Homepage/RightToolbar/Game-Documentation/hytalemodding.png);
   --BackgroundDiner: linear-gradient(0deg, #b8b8b8, #ffffff);
  }
  >content>PanelSection>down>DisplayListDown>*:nth-child(2){
@@ -705,12 +715,12 @@ panel[service="RightToolbar"]{
   --BackgroundDiner: linear-gradient(0deg, #b8b8b8, #ffffff);
  }
  >content>PanelSection>down>DisplayListDown>*:nth-child(4){
-  --srcImage: url(../src/Images/Homepage/RightToolbar/Game-Documentation/HytaleDocs.png);  
+  --srcImage: url(../src/Images/Homepage/RightToolbar/Game-Documentation/HytaleDocs.png);
   --BackgroundDiner: linear-gradient(0deg, #0035a0, #005eff);
  }
  >content>PanelSection>down>DisplayListDown>*>ImageService{
   background-image: var(--srcImage);
- } 
+ }
  >content>PanelSection>down>DisplayListDown>*:hover p{
   font-weight: 900 !important;
   background: var(--BackgroundDiner) !important;
@@ -728,7 +738,7 @@ panel[service="RightToolbar"]{
  }
  >content>PanelSection>down>DisplayListDown>*:nth-child(4):hover * {
   filter: drop-shadow(0px 0px 2px #005eff);
- }  
+ }
 }
 panel[service="RightToolbar"]{
  >content>PanelSection>down>DisplayList{
@@ -794,157 +804,286 @@ panel[service="RightToolbar"]{
 }
 
 panel[service="Feed"]>content{
-     width: 100%;
-     height: 100%;
-     position: relative;
-     display: block;
+ width: 100%;
+ height: max-content;
+ position: relative;
+ display: flex;
+ flex-direction: column;
 }
-panel[service="Feed"]>content{ 
- div{
+panel[service="Feed"]>content{
+ >div[t="Actions"]{
   align-items: center;
   position: relative;
   width: 100%;
   height: max-content;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 300px));
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
   gap: 10px;
   padding-block-start: 10px;
- } 
- div>feeditem[WF="Recent Projects"]{
+ }
+ >div[t="Actions"]>feeditem[WF="Recent Projects"]{
   >centerbar>div:nth-child(2){
    mask-image: url(../src/Images/Homepage/Feed/FeedItem/Projects.png);
-  } 
+  }
   >
- bottombar>button:before{
+  bottombar>button:before{
    content: "Manage projects";
   }
- } 
- div>feeditem[WF="Team Projects"]{
+ }
+ >div[t="Actions"]>feeditem[WF="Team Projects"]{
   >centerbar>div:nth-child(2){
    mask-image: url(../src/Images/Homepage/Feed/FeedItem/Community.png);
-  } 
+  }
   >
- bottombar>button:before{
+  bottombar>button:before{
    content: "Manage projects";
   }
- } 
- div>feeditem[WF="Project News"]{
+ }
+ >div[t="Actions"]>feeditem[WF="Project News"]{
   >centerbar>div:nth-child(2){
    mask-image: url(../src/Images/Homepage/Feed/FeedItem/News.png);
-  } 
+  }
   >
- bottombar>button:before{
+  bottombar>button:before{
    content: "View Notices";
   }
- } 
- div>feeditem{
-    height: max-content;
- padding: 15px;
- box-sizing: border-box;
- display: flex;
- flex-direction: column;
- border-radius: 10px;
- border: 1px solid #0008b8;
- background-color: #010b21;
+ }
+ >div[t="Actions"]>feeditem{
+  height: max-content;
+  padding: 15px;
+  padding-inline: 8px;
+  padding-block: 10px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  border: 1px solid #0008b8;
+  background-color: #010b21;
+  position: relative;
+  width: 100%;
+  /* display: none; */
+ }
+ >div[t="Actions"]>feeditem>topbar{
+  height: max-content;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+ }
+ >div[t="Actions"]>feeditem>topbar>p{
+  margin: 0px;
+  font-size: 1em;
+  width: 100%;
+  font-family: 'Lexend';
+  color: white;
+  background: linear-gradient(0deg, #0035a0, #4572ff);
+  padding-inline-start: 2.5px;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+ }
+ >div[t="Actions"]>feeditem>centerbar{
+  height: max-content;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: center;
+  padding-block: 10px;
+  padding-block-end: 10px;
+ }
+ >div[t="Actions"]>feeditem>centerbar>div:nth-child(1){
+  height: 100%;
+  width: -webkit-fill-available;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+ }
+ >div[t="Actions"]>feeditem>centerbar>div:nth-child(1)>p{
+  margin: 0px;
+  font-size: 2.5em;
+  padding-inline-start: 10px;
+  width: 100%;
+  font-family: 'Lexend';
+  color: white;
+  font-size: clamp(10px, 2.5vw, 200px); /* nunca más chico de 12px ni más grande de 20px */
+  white-space: nowrap;               /* evita saltos de línea */
+  overflow: hidden;                  /* oculta lo que se pase */
+  text-overflow: ellipsis;
+  background: linear-gradient(0deg, #0035a0, #4572ff);
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+ }
+ >div[t="Actions"]>feeditem>centerbar>div:nth-child(2){
+  height: 60px;
+  min-height: -webkit-fill-available;
+  aspect-ratio: 1 / 1 auto;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+  position: relative;
+  background: linear-gradient(0deg, #0035a0, #4572ff);
+ }
+ >div[t="Actions"]>feeditem>bottombar{
+  height: max-content;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+ }
+ >div[t="Actions"]>feeditem>bottombar>button{
+  all: unset;
+  border: 1px solid #0008b8;
+  background-color: #011030;
+  position: relative;
+  border-radius: 5px;
+  padding: 8px;
+  box-sizing: border-box;
+  text-align: center;
+  font-family: 'Lexend';
+  font-size: 0.8em;
+  cursor: pointer;
+  transition: 0.25s;
+  font-weight: 300;
+ }
+ >div[t="Actions"]>feeditem>bottombar>button:before{
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background: linear-gradient(0deg, #0035a0, #4572ff);
+  transition: 0.25s;
+ }
+ >div[t="Actions"]>feeditem>bottombar>button>*{
+ }
+ >div[t="Actions"]>feeditem>bottombar>button:hover>*{
+  filter: drop-shadow(0px 0px 2px #ac8a00) !important;
+ }
+ >div[t="Actions"]>feeditem>bottombar>button:hover{
+  filter: drop-shadow(0px 0px 2px #ac8a00) !important;
+  border: 1px solid #ffdd773d;
+  background-color: #ffdd770f;
+ }
+ >div[t="Actions"]>feeditem>bottombar>button:hover:before{
+  background: linear-gradient(0deg, #ac8a00, #ffdd77) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  font-weight: 900;
+ }
+}
+
+panel[service="Recent Project"]{
+ width: 100%;
+ height: max-content;
+ padding: 0px;
+ flex: 0 1 auto;
+ display: block;
+ margin-block-start: 20px;
+}
+panel[service="Recent Project"]>topbar{
+ width: 100%;
+ height: max-content;
  position: relative;
- width: 100%;
- /* display: none; */
- }  
- div>feeditem>topbar{
-    height: max-content;
- width: 100%;
- display: flex;
- flex-direction: column;
- position: relative;
- } 
- div>feeditem>topbar>p{
-    margin: 0px;
- font-size: 1em;
- width: 100%;
- font-family: 'Lexend';
- color: white;
- background: linear-gradient(0deg, #0035a0, #4572ff);
- -webkit-background-clip: text !important;
- -webkit-text-fill-color: transparent !important;
- } 
- div>feeditem>centerbar{
-    height: max-content;
- width: 100%;
  display: flex;
  flex-direction: row;
- position: relative;
- align-items: center;
- padding-block: 10px;
- padding-block-end: 15px;
- } 
- div>feeditem>centerbar>div:nth-child(1){
-    height: 100%;
- width: -webkit-fill-available;
- display: flex;
- flex-direction: column;
- position: relative;
- }  
- div>feeditem>centerbar>div:nth-child(1)>p{
-    margin: 0px;
- font-size: 2.5em;
- width: 100%;
- font-family: 'Lexend';
- color: white;
- background: linear-gradient(0deg, #0035a0, #4572ff);
- -webkit-background-clip: text !important;
- -webkit-text-fill-color: transparent !important;
- } 
- div>feeditem>centerbar>div:nth-child(2){
-    height: 75px;
- /* margin-inline-start: 150px; */
- aspect-ratio: 1 / 1 auto;
- mask-repeat: no-repeat;
- mask-position: center;
- mask-size: contain;
- position: relative;
- background: linear-gradient(0deg, #0035a0, #4572ff);
- } 
- div>feeditem>bottombar{
-    height: max-content;
- width: 100%;
- display: flex;
- flex-direction: column;
- position: relative;
- }
- div>feeditem>bottombar>button{
-  all: unset;
- border: 1px solid #0008b8;
- background-color: #011030;
- position: relative;
- border-radius: 5px;
- padding: 8px;
  box-sizing: border-box;
- text-align: center;
+ padding-block-end: 5px;
+ border-block-end: 2px solid #8191ff4f;
+ padding-inline: 10px;
+}
+panel[service="Recent Project"]>topbar>ptitle{
+ width: 100%;
+ height: max-content;
+ position: relative;
+ box-sizing: border-box;
+ display: block;
+}
+panel[service="Recent Project"]>topbar>ptitle>p{
+ margin: 0px;
+ color: white;
  font-family: 'Lexend';
- font-size: 0.8em;
- cursor: pointer;
- transition: 0.25s;
- font-weight: 300;
+ font-size: 1.5em;
+ font-weight: 200;
+}
+panel[service="Recent Project"]>topbar>otitle{
+ min-width: max-content;
+ width: max-content;
+ position: relative;
+ height: max-content;
+ display: block;
+}
+panel[service="Recent Project"]>content{
+ width: 100%;
+ height: max-content;
+ position: relative;
+ display: block;
+}
+panel[service="Recent Project"]>content{
+ >div[t="Recent Project"]{
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: max-content;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(calc(100% / 3 - 10px), max-content));
+  gap: 10px;
+  padding-block-start: 10px;
+  justify-items: center;
+  justify-content: start;
  }
- div>feeditem>bottombar>button:before{ 
-  -webkit-background-clip: text !important;
- -webkit-text-fill-color: transparent !important;
- background: linear-gradient(0deg, #0035a0, #4572ff);
- transition: 0.25s;
- } 
- div>feeditem>bottombar>button>*{}
- div>feeditem>bottombar>button:hover>*{
-  filter: drop-shadow(0px 0px 2px #ac8a00) !important;
+ >div[t="Recent Project"]>RecentProject{
+  height: max-content;
+  padding: 15px;
+  padding-inline: 8px;
+  padding-block: 10px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  border: 1px solid #0008b8;
+  background-color: #010b21;
+  position: relative;
+  width: 100%;
+  /* display: none; */
  }
- div>feeditem>bottombar>button:hover{ 
-  filter: drop-shadow(0px 0px 2px #ac8a00) !important;
- border: 1px solid #ffdd773d;
- background-color: #ffdd770f;
- } 
- div>feeditem>bottombar>button:hover:before{
-  background: linear-gradient(0deg, #ac8a00, #ffdd77) !important;
- -webkit-background-clip: text !important;
- -webkit-text-fill-color: transparent !important;
- font-weight: 900;
- } 
+ >div[t="Recent Project"]>RecentProject>centerbar{
+  height: auto;
+  aspect-ratio: 1 / 0.6 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-block-end: 10px;
+  overflow: hidden;
+ }
+ >div[t="Recent Project"]>RecentProject>centerbar>img{
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1 / 1 auto;
+ }
+ >div[t="Recent Project"]>RecentProject>bottombar{
+  height: max-content;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+ }
+ >div[t="Recent Project"]>RecentProject>bottombar>p{
+  margin: 0px;
+ }
+ >div[t="Recent Project"]>RecentProject>bottombar>p:first-of-type{
+  color: white;
+  font-family: 'Lexend';
+  font-weight: 300;
+ }
+ >div[t="Recent Project"]>RecentProject>bottombar>div{
+  height: 1px;
+  width: 100%;
+  margin-block: 3px;
+  background-color: #ffffff30;
+  box-sizing: border-box;
+  border-radius: 0px;
+ }
+ >div[t="Recent Project"]>RecentProject>bottombar>p:last-of-type{
+  color: #9aa2bc;
+  font-family: system-ui;
+  font-size: 12px;
+ }
 }
